@@ -4,7 +4,7 @@ import array as arr
 import time
 
 
-so_testing = CDLL('./so_test5.so')
+so_testing = CDLL('./so_task2.so')
 
 INPUT = c_int * 7
 data1 = INPUT(1, 4, 3, 4, 5, 6, 7)
@@ -12,44 +12,27 @@ data1 = INPUT(1, 4, 3, 4, 5, 6, 7)
 INPUT = c_int * 3
 data2 = INPUT(5, 4, 6)
 
-#.array_sum(data1, len(data1))
-#.array_sum(data1, len(data1))
-'''
 so_testing.array_sum(data1, len(data1))
 so_testing.array_sum(data1, len(data1))
 so_testing.array_sum(data1, len(data1))
 so_testing.array_sum(data1, len(data1))
 
 so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-
-so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-'''	
-#so_testing.array_sum(data1, len(data1))
 
 so_testing.array_product(data2, len(data2))
-#so_testing.add_prime()
-#so_testing.add_unif_ver(2)
-#so_testing.add_unif_ver(6)
-#so_testing.add_unif_ver(6)
-#so_testing.add_unif_ver(6)
-#so_testing.add_unif_ver(10)
-#so_testing.add_timer(10)
-#so_testing.all_tasks_ids()
 
+input_size = 6
 
-INPUT = c_int * 6
+INPUT = c_int * input_size
+
 data3 = INPUT()
 
-INPUT = c_int * 6
 data4 = INPUT()
 
-for i in range(6):
+for i in range(input_size):
 	data4[i] = 1
 
-for i in range(20):
+while True:
 	so_testing.foo(data3, data4, len(data3))
 	print ("\ntask_id_python")
 	k = 0
