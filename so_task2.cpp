@@ -201,7 +201,35 @@ for (int j = 0; j < 50000000; ++j)
     		;
  	std::vector<int> a1(a, a+n);
      	shell(task_identifiers, tp0, &multiply, a1);
+     	/*
+     	int m[2000000];
+     	for(int i = 0; i < 2000000; ++i)
+     		m[i] = 1;
+     	int S = 0;
+     	for(int i = 0; i < 2000000; ++i)
+     		S += m[i];
+     	std::cout << "\nS = " << S << '\n';*/
+     	
+     	long sz = 100000000;
+	
+	int *ar = new int[sz];
+	//int ar[142000000];
+	//int sz = 142000000;
+	for(int i = 0; i < sz; ++i)
+		ar[i] = 1;
+	int S = 0;
+	for(int i = 0; i < sz; ++i)
+		S += ar[i];
+	std::cout << S << '\n';
+	//std::cout << sizeof(a[0]) << '\n';
+ 
+     	
+     	std::cout << sizeof(short) << '\n';
+     	std::cout << sizeof(int) << '\n';
+     	std::cout << sizeof(long) << '\n';
+     	std::cout << sizeof(long long) << '\n';
 }
+
 
 void add_prime() {
 	shell(task_identifiers, tp0, &prime1_100);
