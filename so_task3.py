@@ -5,38 +5,45 @@ import time
 
 so_testing = CDLL('./so_task3.so')
 
-so_testing.foo_(2100000000)
+print(np.sctypeDict)
+
+#so_testing.add_foo__task(2000000000)
 
 '''
-np_array = np.ones(600000000, dtype = np.float64)
-#so_testing.foo1()
-so_testing.foo2.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags='C_CONTIGUOUS')]
-so_testing.foo2(np_array, 600000000)
+np_array = np.ones(1100000000, dtype = np.int32)
+
+so_testing.add_foo2_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.int32, ndim=1, flags='C_CONTIGUOUS')]
+so_testing.add_foo2_task(np_array, 1100000000)
+
+np_array1 = np.ones(20, dtype = np.int32)
+#so_testing.add_foo2_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags='C_CONTIGUOUS')]
+so_testing.add_foo2_task(np_array1, 20)
+
+#print(sum(np_array))
+'''
 
 
-INPUT = c_int * 1000000000
+np_array = np.ones(5000000000, dtype = np.byte)
+#print(sum(np_array))
+
+so_testing.add_foo2_mod_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.byte, ndim=1, flags='C_CONTIGUOUS')]
+so_testing.add_foo2_mod_task(np_array, 5, 1)
+
+np_array1 = np.ones(10, dtype = np.byte)
+#so_testing.add_foo2_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags='C_CONTIGUOUS')]
+so_testing.add_foo2_mod_task(np_array1, 10, 0)
+
+
+'''
+INPUT = c_int * 1100000000
 data100 = INPUT()
 for i in range(len(data100)):
 	data100[i] = 1
-so_testing.foo1(data100, len(data100))	
+so_testing.add_foo1_task(data100, len(data100))	
+#so_testing.foo1(data100, len(data100))
 '''
 
-INPUT = c_int * 7
-data1 = INPUT(1, 4, 3, 4, 5, 6, 7)
-
-INPUT = c_int * 3
-data2 = INPUT(5, 4, 6)
-
-so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-so_testing.array_sum(data1, len(data1))
-
-so_testing.array_sum(data1, len(data1))
-
-so_testing.array_product(data2, len(data2))
-
-input_size = 6
+input_size = 2
 
 INPUT = c_int * input_size
 
@@ -60,7 +67,6 @@ while True:
 	if k == 0:
 		break
 	time.sleep(10)
-	
 
 
 
