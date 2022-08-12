@@ -29,9 +29,13 @@ np_array = np.ones(5000000000, dtype = np.byte)
 so_testing.add_foo2_mod_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.byte, ndim=1, flags='C_CONTIGUOUS')]
 so_testing.add_foo2_mod_task(np_array, 5, 1)
 
-np_array1 = np.ones(10, dtype = np.byte)
+np_array1 = np.ones(20, dtype = np.byte)
 #so_testing.add_foo2_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags='C_CONTIGUOUS')]
-so_testing.add_foo2_mod_task(np_array1, 10, 0)
+so_testing.add_foo2_mod_task(np_array1, 20, 0)
+
+np_array1 = np.ones(2000000000, dtype = np.byte)
+#so_testing.add_foo2_task.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64, ndim=1, flags='C_CONTIGUOUS')]
+so_testing.add_foo2_mod_task(np_array1, 2, 1)
 
 
 '''
@@ -43,7 +47,7 @@ so_testing.add_foo1_task(data100, len(data100))
 #so_testing.foo1(data100, len(data100))
 '''
 
-input_size = 2
+input_size = 3
 
 INPUT = c_int * input_size
 
